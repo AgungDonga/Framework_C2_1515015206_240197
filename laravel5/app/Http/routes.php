@@ -15,6 +15,10 @@ Route::get('/', function () {
     return view('posttest1');
 });
 
+Route::get('pengguna/{pengguna}', function ($pengguna) {
+    return "Hallo world dari pengguna $pengguna";
+});
+
 Route::get('/public', function () {
     return ("Nama Saya : Agung Layang Donga");
 });
