@@ -4,7 +4,8 @@ namespace App;
 
 use Illuminate\Database\Eloquent\Model;
 
-class Pengguna extends Model
+class pengguna extends Model
 {
     protected $table = 'pengguna';
+    protected $isi = ['username','password'];
 }

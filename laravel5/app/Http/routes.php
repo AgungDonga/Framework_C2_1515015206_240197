@@ -1,99 +1,67 @@
 <?php
-
-/*
-|--------------------------------------------------------------------------
-| Application Routes
-|--------------------------------------------------------------------------
-|
-| Here is where you can register all of the routes for an application.
-| It's a breeze. Simply tell Laravel the URIs it should respond to
-| and give it the controller to call when that URI is requested.
-|
-*/
-
+use App\pengguna;
+use App\dosen;
+use App\mahasiswa;
+use App\matakuliah;
+use App\ruangan;
+use App\dosen_matakuliah;
+use App\jadwal_matkul;
 
 Route::get('/', function () {
-    return view('posttest1');
+    return view('welcome');
 });
-Route::get('dosen','DosenController@awal');
-
-Route::get('dosen/tambah','DosenController@tambah');
-
-Route::get('mahasiswa','MahasiswaController@awal');
-
-Route::get('mahasiswa/tambah','MahasiswaController@tambah');
-
-Route::get('matakuliah','MatakuliahController@awal');
-
-Route::get('matakuliah/tambah','MatakuliahController@tambah');
-
-Route::get('dosenmatakuliah','Dosen_MatakuliahController@awal');
-
-Route::get('dosenmatakuliah/tambah','Dosen_MatakuliahController@tambah');
-
-Route::get('jadwalmatakuliah','Jadwal_MatakuliahController@awal');
-
-Route::get('jadwalmatakuliah/tambah','Jadwal_MatakuliahController@tambah');
-
-Route::get('ruangan','RuanganController@awal');
-
-Route::get('ruangan/tambah','RuanganController@tambah');
-
-Route::get('pengguna','PenggunaController@awal');
-
-Route::get('pengguna/tambah','PenggunaController@tambah');
-
 Route::get('/public', function () {
-    return ("Nama Saya : Agung Layang Donga");
+    return ('Nama : Agung Layang Donga');
 });
+Route::get('pengguna','penggunacontroller@awal');
+Route::get('/pengguna/tambah','penggunacontroller@tambah');
+Route::get('pengguna/lihat/{pengguna}','penggunacontroller@lihat');
+Route::post('/pengguna/simpan','penggunacontroller@simpan');
+Route::get('/pengguna/edit/{pengguna}','penggunacontroller@edit');
+Route::post('/pengguna/edit/{pengguna}','penggunacontroller@update');
+Route::get('/pengguna/hapus/{pengguna}','penggunacontroller@hapus');
 
+Route::get('jadwal_matakuliah','jadwal_matakuliahc@awal');
+Route::get('/jadwal_matakuliah/tambah','jadwal_matakuliahc@tambah');
+Route::get('jadwal_matakuliah/lihat/{jadwal_matakuliah}','jadwal_matakuliahc@lihat');
+Route::post('/jadwal_matakuliah/simpan','jadwal_matakuliahc@simpan');
+Route::get('/jadwal_matakuliah/edit/{jadwal_matakuliah}','jadwal_matakuliahc@edit');
+Route::post('/jadwal_matakuliah/edit/{jadwal_matakuliah}','jadwal_matakuliahc@update');
+Route::get('/jadwal_matakuliah/hapus/{jadwal_matakuliah}','jadwal_matakuliahc@hapus');
 
-Route::get('good', function () {
-    return view('hey');
-});
+Route::get('dosen_matakuliah','dosen_matakuliahc@awal');
+Route::get('/dosen_matakuliah/tambah','dosen_matakuliahc@tambah');
+Route::get('dosen_matakuliah/lihat/{dosen_matakuliah}','dosen_matakuliahc@lihat');
+Route::post('/dosen_matakuliah/simpan','dosen_matakuliahc@simpan');
+Route::get('/dosen_matakuliah/edit/{dosen_matakuliah}','dosen_matakuliahc@edit');
+Route::post('/dosen_matakuliah/edit/{dosen_matakuliah}','dosen_matakuliahc@update');
+Route::get('/dosen_matakuliah/hapus/{dosen_matakuliah}','dosen_matakuliahc@hapus');
 
-Route::get('/cobamodel',function()
-{
-	$anggota=App\Anggota::all()->first();
-	echo $anggota->nama;
-	echo $anggota->alamat;
-});
+Route::get('matakuliah','matakuliahc@awal');
+Route::get('/matakuliah/tambah','matakuliahc@tambah');
+Route::get('matakuliah/lihat/{matakuliah}','matakuliahc@lihat');
+Route::post('/matakuliah/simpan','matakuliahc@simpan');
+Route::get('/matakuliah/edit/{matakuliah}','matakuliahc@edit');
+Route::post('/matakuliah/edit/{matakuliah}','matakuliahc@update');
+Route::get('/matakuliah/hapus/{matakuliah}','matakuliahc@hapus');
 
-Route::get('/cobamodel1',function()
-{
-	$anggota=App\Anggota::where('nama','=','Agung')->first();
-	echo $anggota->id.' ';
-	echo $anggota->nama;
-});
+Route::get('ruangan','ruanganc@awal');
+Route::get('/ruangan/tambah','ruanganc@tambah');
+Route::get('ruangan/lihat/{ruangan}','ruanganc@lihat');
+Route::post('/ruangan/simpan','ruanganc@simpan');
+Route::get('/ruangan/edit/{ruangan}','ruanganc@edit');
+Route::post('/ruangan/edit/{ruangan}','ruanganc@update');
+Route::get('/ruangan/hapus/{ruangan}','ruanganc@hapus');
 
-Route::get('/cobamodel2',function()
-{
-	$anggota=App\Anggota::all();
-	foreach ($anggota as $list) 
-		{
-			echo $list->nama;
-			echo $list->alamat;
-		}
-});
-
-Route::get('/cobamodel3',function()
-{
-	$anggota=new App\Anggota;
-	$anggota->nama = 'Taylor';
-	$anggota->alamat ='Avenue 12' ;
-	$anggota->save();
-});
-
-Route::get('/cobamodel4',function()
-{
-	$anggota=App\Anggota::find(4);
-	$anggota->nama = 'John depp';
-	$anggota->alamat ='Silicon Valley' ;
-	$anggota->save();
-});
-
-Route::get('/cobamodel5',function(){
-	$anggota=App\Anggota::find(1);
-	$anggota->delete();
-});
-
+Route::get('/dosen','dosenc@awal');
+Route::get('/dosen/tambah','dosenc@tambah');
+Route::get('/mahasiswa','mahasiswac@awal');
+Route::get('/mahasiswa/tambah','mahasiswac@tambah');
+Route::get('/matakuliah','matakuliahc@awal');
+Route::get('/matakuliah/tambah','matakuliahc@tambah');
+Route::get('/ruangan','ruanganc@awal');
+Route::get('/ruangan/tambah','ruanganc@tambah');
+Route::get('/dosmat','dosen_matakuliahc@awal');
+Route::get('/dosmat/tambah','dosen_matakuliahc@tambah');
+Route::get('/jadwal','jadwal_matkulc@awal');
+Route::get('/jadwal/tambah','jadwal_matkulc@tambah');

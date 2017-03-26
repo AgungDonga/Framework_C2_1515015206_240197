@@ -4,7 +4,8 @@ namespace App;
 
 use Illuminate\Database\Eloquent\Model;
 
-class Mahasiswa extends Model
+class mahasiswa extends Model
 {
-    protected $table = 'mahasiswa';
+   protected $table = 'mahasiswa';
+    protected $isi = ['nama','nim','alamat','pengguna_id'];
 }

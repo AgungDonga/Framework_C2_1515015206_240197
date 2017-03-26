@@ -4,7 +4,8 @@ namespace App;
 
 use Illuminate\Database\Eloquent\Model;
 
-class Matakuliah extends Model
+class matakuliah extends Model
 {
-    protected $table = 'matakuliah';
+   protected $table = 'matakuliah';
+   protected $isi = ['title','Keterangan'];
 }
