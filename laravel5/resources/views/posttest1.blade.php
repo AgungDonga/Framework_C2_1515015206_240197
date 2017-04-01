@@ -38,8 +38,8 @@
     <body>
         <div class="container">
             <div class="content">
-                <div class="title">Agung Layang Donga</div>
-                <div class="title">1515015206</div>
+                <div class="title">NAMA : DAMAR SANGGARA HABIBIE</div>
+                <div class="title">NIM : 1515015146</div>
             </div>
         </div>
     </body>

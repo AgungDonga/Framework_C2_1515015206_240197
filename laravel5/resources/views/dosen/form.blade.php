@@ -1,28 +1,37 @@
 <div class="form-group">
-<label class="col-sm-2 control-label">Nama</label>
-<div class="col-sm-10">
-	{!! Form::text('nama',null,array('required','class'=>'form-control','placeholder'=>"nama"))!!}
-</div>
-</div>
-
-<div class="form-group">
-<label class="col-sm-2 control-label">Nip</label>
-<div class="col-sm-10">
-	{!! Form::text('nip',null,array('required','class'=>'form-control','placeholder'=>"NIP"))!!}
-</div>
+	<label class="col-sm-2 control-label" id="nama">Nama Dosen</label>
+	<div class="col-sm-10">
+		{!! Form::text('nama',null,['class'=>'form-control','id'=>'nama','placeholder'=>"Nama"]) !!}	
+	</div>
 </div>
 
 <div class="form-group">
-<label class="col-sm-2 control-label">Alamat</label>
-<div class="col-sm-10">
-	{!! Form::text('alamat',null,array('required','class'=>'form-control','placeholder'=>"alamat"))!!}
+	<label class="col-sm-2 control-label" id="nip">NIP</label>
+	<div class="col-sm-10">
+		{!! Form::text('nip',null,['class'=>'form-control','id'=>'nip','placeholder'=>"NIP"]) !!}	
+	</div>
 </div>
-</div>
-
-
 <div class="form-group">
-<label class="col-sm-2 control-label">Pengguna ID</label>
-<div class="col-sm-10">
-	{!! Form::number('pengguna_id',null,array('required','class'=>'form-control','placeholder'=>"pengguna_id"))!!}
+	<label class="col-sm-2 control-label" id="alamat">Alamat</label>
+	<div class="col-sm-10">
+		{!! Form::textarea('alamat',null,['class'=>'form-control','id'=>'alamat','placeholder'=>"Alamat"]) !!}	
+	</div>
 </div>
+<div class="form-group">
+	<label class="col-sm-2 control-label">Username</label>
+	<div class="col-sm-10">
+		{!! Form::text('username',null,['class'=>'form-control','placeholder'=>"Username"]) !!}	
+	</div>
 </div>
+<div class="form-group">
+	<label class="col-sm-2 control-label">Password</label>
+	<div class="col-sm-10">
+		{!! Form::password('password',['class'=>'form-control','placeholder'=>"Password"]) !!}	
+	</div>
+</div>
+
+<!-- 
+$dosen->nama = $input->nama;
+    	$dosen->nip = $input->nip;
+    	$dosen->alamat = $input->alamat;
+    	$dosen->pengguna_id = $input->pengguna_id; -->
