@@ -1,9 +1,6 @@
 <?php
-
 namespace App\Http\Controllers;
-
 use Illuminate\Http\Request;
-
 use App\Http\Requests;
 use App\Dosen_Matakuliah;
 use App\Dosen;
@@ -27,10 +24,10 @@ class Dosen_MatakuliahController extends Controller
         return view('dosen_matakuliah.tambah',compact('dosen','matakuliah'));
         return $this->simpan();
     }
-    public function simpan(Requests $input)
+    public function simpan(Request $input)
     {
         $dosen_matakuliah = new Dosen_Matakuliah($input->only('dosen_id','matakuliah_id'));
-            if($jadwal_matakuliah->save()) $this->informasi = "Jadwal Dosen Mengajar berhasil disimpan";
+            if($dosen_matakuliah->save()) $this->informasi = "Jadwal Dosen Mengajar berhasil disimpan";
             return redirect('dosen_matakuliah')->with(['informasi'=>$this->informasi]);
 
         // $dosen_matakuliah = new Dosen_Matakuliah();

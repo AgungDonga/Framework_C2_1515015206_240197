@@ -29,8 +29,8 @@ class MahasiswaController extends Controller
     public function simpan(Request $input)
     {
         // $mahasiswa = new Mahasiswa();
-        // $mahasiswa->nama = 'Kimebmen Simbolon';
-        // $mahasiswa->nim = '1515015131';
+        // $mahasiswa->nama = 'Agung Layang Donga';
+        // $mahasiswa->nim = '1515015206';
         // $mahasiswa->alamat = 'Samarinda';
         // $mahasiswa->pengguna_id = 1;
         // $mahasiswa->save();
@@ -84,10 +84,13 @@ class MahasiswaController extends Controller
     public function update($id, Request $input)
     {
         $mahasiswa = Mahasiswa::find($id);
+        $pengguna = $mahasiswa->pengguna;
         $mahasiswa->nama = $input->nama;
         $mahasiswa->nim = $input->nim;
         $mahasiswa->alamat = $input->alamat;
-        $mahasiswa->pengguna_id = $input->pengguna_id;
+        
+        $mahasiswa->save();
+
         if(!is_null($input->username)){
             $pengguna = $mahasiswa->pengguna->fill($input->only('username'));
                 if(!empty($input->password)) $pengguna->password = $input->password;
