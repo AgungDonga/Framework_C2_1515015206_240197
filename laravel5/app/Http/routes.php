@@ -10,6 +10,31 @@
 | and give it the controller to call when that URI is requested.
 |
 */
+Route::get('/',function ()
+{
+	return \App\Dosen_Matakuliah::whereHas('dosen',function($query)
+	{
+		$query->where('nama','like','%s%');
+	})->with('dosen')->groupBy('dosen_id')->get();
+	});
+
+Route::get('/',function ()
+{
+	return \App\Dosen_Matakuliah::whereHas('dosen',function($query)
+	{
+		$query->where('nama','like','%s%');
+	})
+	->orWhereHas('matakuliah',function($kueri)
+	{
+		$kueri->where('title','like','%a%');
+	})
+	->with('dosen','matakuliah')
+	->groupBy('dosen_id')
+	->get();
+	});
+
+Route::get('ujiHas','RelationshipRebornController@ujiHas');
+Route::get('ujiDoesntHave','RelationshipRebornController@ujiDoesntHave');
 
 Route::get('pengguna','PenggunaController@awal');
 Route::get('pengguna/tambah','PenggunaController@tambah');
@@ -85,9 +110,9 @@ Route::get('jadwal_matakuliah/lihat/{jadwal_matakuliah}','Jadwal_MatakuliahContr
 // Route::get('/', function () {
 //     return view('posttest1');
 // });
-Route::get('/', function () {
-    return view('master');
-}); 
+// Route::get('/', function () {
+//     return view('master');
+// }); 
 
 Route::get('/public', function () {
     return ("Nama Saya : R.H. Kimebmen Simbolon");
