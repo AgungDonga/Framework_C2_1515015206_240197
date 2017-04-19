@@ -1,4 +1,5 @@
 <?php
+use Illuminate\Http\Request;
 
 /*
 |--------------------------------------------------------------------------
@@ -10,6 +11,11 @@
 | and give it the controller to call when that URI is requested.
 |
 */
+
+
+
+
+
 Route::get('/',function ()
 {
 	return \App\Dosen_Matakuliah::whereHas('dosen',function($query)
@@ -115,8 +121,27 @@ Route::get('jadwal_matakuliah/lihat/{jadwal_matakuliah}','Jadwal_MatakuliahContr
 // }); 
 
 Route::get('/public', function () {
-    return ("Nama Saya : R.H. Kimebmen Simbolon");
+    return ("Nama Saya : Agung Layang Donga");
 });
 Route::get('pengguna/{pengguna}', function ($pengguna) {
     return ("Hallo World dari pengguna $pengguna");
 });
+
+Route::get('/',function (Illuminate\Http\Request $request)
+{
+	echo "Ini adalah request dari method get ". $request->nama;
+});
+
+Route::get('/',function(){
+	echo Form::open(['url'=>'/']).
+	Form::label('nama').
+	Form::text('nama',null).
+	Form::submit('kirim').
+	Form::close();
+});
+
+Route::post('/',function(Request $request)
+{
+	echo "Hasil dari form input tadi nama : ".$request->nama;
+});
+

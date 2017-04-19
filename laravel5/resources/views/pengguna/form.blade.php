@@ -8,6 +8,6 @@
 	<label class="col-sm-2 control-label">Password</label>
 	<div class="col-sm-10">
 		<!-- {!! Form::password('password',null,['class'=>'form-control','placeholder'=>"Password"]) !!}	 -->
-		{{ Form::password('password', array('id' => 'password', "class" => "form-control")) }}
+		{{ Form::password('password', array('id' => 'password', "class" => "form-control",'placeholder'=>"Password")) }}
 	</div>
 </div>
