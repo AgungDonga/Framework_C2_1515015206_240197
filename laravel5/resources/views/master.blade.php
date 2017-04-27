@@ -56,6 +56,9 @@
                             <li>
                                 <a href="{{url('mahasiswa')}}">Data Mahasiswa</a>
                             </li>
+                            <li>
+                                
+                            </li>
                             <li class="divider"></li>
                             <li>
                                 <a href="{{url('jadwal_matakuliah')}}">Jadwal Mahasiswa</a>
@@ -90,6 +93,7 @@
                                 <a href="{{url('matakuliah')}}">Matakuliah</a>
                             </li>
                         </ul>
+                        <li><a href="{{ url('logout')}}" style="color: salmon">Logout</a></li>
                     </li>                   
                 </ul>
             </div><!--/.nav-collapse -->
